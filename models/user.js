@@ -1,13 +1,15 @@
 import mongoose from "../db/connection.js";
 
-const {Schema, model} = mongoose
+const { Schema, model } = mongoose;
 
-const userSchema = new Schema({
-    username: {type: String, required: true, unique: true},
-    password: {type: Stirng, required: true}
+const userSchema = new Schema(
+  {
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
-}, {timestamps: true})
+const User = model("User", userSchema);
 
-const User = model("User", userSchema)
-
-export default User
+export default User;
