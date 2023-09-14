@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from "./controllers/auth.js";
+import noteRouter from "./controllers/note.js"
 
 //read .env file
 dotenv.config();
@@ -24,6 +25,7 @@ app.get("/test", (req, res) => {
   res.send("server is working");
 });
 app.use("/auth", authRouter);
+app.use("/note", noteRouter)
 
 // listen - turn on server
 const PORT = process.env.PORT || 4444;
